@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->id();
+
+            $table->string('pl');
+
+            $table->string('en')->nullable();
+            $table->string('it')->nullable();
+
             $table->timestamps();
         });
     }

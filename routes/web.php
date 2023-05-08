@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WordController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,14 @@ Route::get('/ping', function () {
         ]
     ]);
 });
+
+// Words API
+
+Route::get('/words', [WordController::class, 'index']);
+Route::get('/words/{id}', [WordController::class, 'show']);
+
+Route::get('/translate', [WordController::class, 'translate']);
+
+Route::post('/words', [WordController::class, 'store']);
 
 require __DIR__ . '/auth.php';
